@@ -1,0 +1,3 @@
+BEGIN 1:data_memory:fast:work
+    ram :  1:tb_ecc_memory:fast:work
+END 
