@@ -23,7 +23,7 @@
 module branchEvaluator(
     input PCWriteCond,
     input [2:0] funct3,
-    input [31:0] x,
+    input sign,
     input z,
     output reg branch
     );
@@ -33,8 +33,8 @@ module branchEvaluator(
             case (funct3)
                 3'b000: branch = z;  // a == b
                 3'b001: branch = ~z; // a != b
-                3'b100: branch = x[31] == 1'b1; //sign(a - b) = 1 (-ve)
-                3'b101: branch = x[31] == 1'b0; //sign(a - b) = 0 (+ve)
+                3'b100: branch = sign == 1'b1; //sign(a - b) = 1 (-ve)
+                3'b101: branch = sign == 1'b0; //sign(a - b) = 0 (+ve)
                 default: branch = 1'b0;
             endcase        
         end

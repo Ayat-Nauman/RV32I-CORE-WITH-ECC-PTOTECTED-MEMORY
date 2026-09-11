@@ -10,3 +10,4 @@ output_files/
 *.jdi
 *.pin
 simulation/
+Verification/
