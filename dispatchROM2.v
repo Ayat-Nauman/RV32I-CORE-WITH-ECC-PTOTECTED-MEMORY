@@ -2,14 +2,15 @@
 
 module dispatchROM2(
     input [6:0] opcode,
-    output [3:0] nxt
+    output reg [3:0] nxt
     );
-    reg [3:0] ROM2 [0:1];
-        
-    initial begin
-        ROM2[0] = 4'b1000; //LW
-        ROM2[1] = 4'b1011; //SW
-    end
-    assign nxt = ROM2[opcode[5]];    
+	 
+	 always @(*) begin
+		case(opcode[5])
+			1'b0: nxt = 4'b1000; // LW
+			1'b1: nxt = 4'b1011; // SW
+			default: nxt = 4'b0000; //unused
+		endcase
+	 end    
     
 endmodule

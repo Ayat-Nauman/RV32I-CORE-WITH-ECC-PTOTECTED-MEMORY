@@ -17,38 +17,38 @@ module CU(
     output RegWrite,
     output [3:0] next
     ); 
-    
-    reg [16:0] ROM[15:0];
+        
     reg [3:0] stateReg = 4'b1111, nextstate;
     reg [16:0] ctrls;
     wire [3:0] rom1_nxt, rom2_nxt;
-    assign next = stateReg;
-    
-    initial begin
-        //initializing the ROM
-        ROM[0] = 17'h02013; // fetch
-		  ROM[1] = 17'h00213; // Wait State (all ctrl zeroed)
-        ROM[2] = 17'h10121; // decode
-        ROM[3] = 17'h0008B; // R-Type Execute
-        ROM[4] = 17'h00004; // R-Type/auipc Write Back
-        ROM[5] = 17'h000AB; // I-Type Execute
-        ROM[6] = 17'h00004; // I-Type Write Back
-        ROM[7] = 17'h0002A; // lw/sw Execute (address generation)
-        ROM[8] = 17'h06003; // lw Memory Access
-		  ROM[9] = 17'h00003; // Wait State
-        ROM[10] = 17'h00404; // lw Write Back
-        ROM[11] = 17'h05000; // sw Memory Access
-        ROM[12] = 17'h08148; // Branch Execute
-        ROM[13] = 17'h00804; // lui Execute
-        ROM[14] = 17'h10C2C; // Jalr Execute
-        ROM[15] = 17'h10D04; // Jal Execute                
-    end
+    assign next = stateReg;    
     
     dispatchROM1 rom1 (.opcode(opcode), .nxt(rom1_nxt));
     dispatchROM2 rom2 (.opcode(opcode), .nxt(rom2_nxt));
  
     always @(*) begin
-        ctrls = ROM[stateReg];
+			
+			case(stateReg)
+				4'd0: ctrls = 17'h02013; // fetch
+				4'd1: ctrls = 17'h00213; // Wait State (all ctrl zeroed)
+				4'd2: ctrls = 17'h10121; // decode
+				4'd3: ctrls = 17'h0008B; // R-Type Execute
+				4'd4: ctrls = 17'h00004; // R-Type/auipc Write Back
+				4'd5: ctrls = 17'h000AB; // I-Type Execute
+				4'd6: ctrls = 17'h00004; // I-Type Write Back
+				4'd7: ctrls = 17'h0002A; // lw/sw Execute (address generation)
+				4'd8: ctrls = 17'h06003; // lw Memory Access
+				4'd9: ctrls = 17'h00003; // Wait State
+				4'd10: ctrls = 17'h00404; // lw Write Back
+				4'd11: ctrls = 17'h05000; // sw Memory Access
+				4'd12: ctrls = 17'h08148; // Branch Execute
+				4'd13: ctrls = 17'h00804; // lui Execute
+				4'd14: ctrls = 17'h10C2C; // Jalr Execute
+				4'd15: ctrls = 17'h10D04; // Jal Execute	
+				default: ctrls = 17'h00000; // unused
+		  endcase
+        
+		  
         case (ctrls[1:0])
             2'b00: nextstate = 4'b0000;
             2'b01: nextstate = rom1_nxt;
