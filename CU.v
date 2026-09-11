@@ -26,22 +26,22 @@ module CU(
     
     initial begin
         //initializing the ROM
-        ROM[0] = 17'h02213;
-        ROM[1] = 17'h10121;
-        ROM[2] = 17'h0008B;
-        ROM[3] = 17'h00004;
-        ROM[4] = 17'h000AB;
-        ROM[5] = 17'h00004; 
-        ROM[6] = 17'h0002A;
-        ROM[7] = 17'h06003;
-        ROM[8] = 17'h00404;
-        ROM[9] = 17'h05000;
-        ROM[10] = 17'h08148;
-        ROM[11] = 17'h00804;
-        ROM[12] = 17'h10C2C;
-        ROM[13] = 17'h10D04;
-        ROM[14] = 17'h00000; //unused
-        ROM[15] = 17'h00000; //unused                    
+        ROM[0] = 17'h02013; // fetch
+		  ROM[1] = 17'h00213; // Wait State (all ctrl zeroed)
+        ROM[2] = 17'h10121; // decode
+        ROM[3] = 17'h0008B; // R-Type Execute
+        ROM[4] = 17'h00004; // R-Type/auipc Write Back
+        ROM[5] = 17'h000AB; // I-Type Execute
+        ROM[6] = 17'h00004; // I-Type Write Back
+        ROM[7] = 17'h0002A; // lw/sw Execute (address generation)
+        ROM[8] = 17'h06003; // lw Memory Access
+		  ROM[9] = 17'h00003; // Wait State
+        ROM[10] = 17'h00404; // lw Write Back
+        ROM[11] = 17'h05000; // sw Memory Access
+        ROM[12] = 17'h08148; // Branch Execute
+        ROM[13] = 17'h00804; // lui Execute
+        ROM[14] = 17'h10C2C; // Jalr Execute
+        ROM[15] = 17'h10D04; // Jal Execute                
     end
     
     dispatchROM1 rom1 (.opcode(opcode), .nxt(rom1_nxt));
