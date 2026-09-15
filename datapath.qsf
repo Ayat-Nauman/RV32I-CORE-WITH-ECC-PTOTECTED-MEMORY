@@ -52,9 +52,8 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SYSTEMVERILOG_FILE "ECC PROTECTED MEMORY/memory.sv"
 set_global_assignment -name VERILOG_FILE "ECC PROTECTED MEMORY/ram_256x16A.v"
-set_global_assignment -name VERILOG_FILE "ECC PROTECTED MEMORY/memoryv2.v"
 set_global_assignment -name VERILOG_FILE "ECC PROTECTED MEMORY/mem_map_decoder.v"
 set_global_assignment -name SYSTEMVERILOG_FILE "ECC PROTECTED MEMORY/ecc_memory.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "ECC PROTECTED MEMORY/ecc_encoder.sv"
@@ -72,3 +71,4 @@ set_global_assignment -name SYSTEMVERILOG_FILE UART/uart.sv
 set_global_assignment -name SYSTEMVERILOG_FILE UART/transmitter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE UART/receiver.sv
 set_global_assignment -name VERILOG_FILE datapath.v
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

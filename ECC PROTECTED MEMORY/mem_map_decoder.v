@@ -136,13 +136,13 @@ module mem_map_decoder (
     wire mem_actual_write = MemWrite & is_mem;
     wire mem_actual_read  = MemRead & is_mem;
 
-    memoryv2 main_memory (
-        .clk       (clk),
-        .Address   (Address),
-        .WriteData (WriteData),
-        .MemRead   (mem_actual_read),
-        .MemWrite  (mem_actual_write),
-        .Data      (mem_read_data)
+    ecc_memory main_memory (
+        .clk        (clk),
+        .address    (Address),
+        .write_data (WriteData),
+        .mem_read   (mem_actual_read), 
+        .mem_write  (mem_actual_write),
+        .read_data  (mem_read_data)
     );
     
     uart uart_peripheral (

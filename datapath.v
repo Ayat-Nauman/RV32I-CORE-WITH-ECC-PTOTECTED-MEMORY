@@ -2,43 +2,17 @@ module datapath(
     input clk,
 	 input rst,
 	 input rx,
-    output [31:0] PC, IR, Aregin, ALUout, Areg, Breg,
-    output IorDO, IRwriteO, MemReadO, MemWriteO, ALUsrcAO, PcWriteO, PCsourceO, PCWriteCondO, RegWriteO,    
-    output [1:0] ALUsrcBO, SrcRegO,
-    output [3:0] state,
 	 output tx
     );
       
     reg [31:0] PCin, MemAddress, src1, src2, RegData;
     wire [31:0] PCout, IRin, IRout, MemDatain, MemDataout, MDRin, MDRout, ImmOut, Ain, Aout, Bin, Bout, ALUoutD, ALUoutQ;
     wire IorD, IRwrite, MemRead, MemWrite, ALUsrcA, PcWrite, PCsource, PCWriteCond, PCWriteEnable, RegWrite, branch, zero;
-    wire [1:0] ALUsrcB, ALUop, SrcReg; 
-    wire [3:0] next;
+    wire [1:0] ALUsrcB, ALUop, SrcReg;     
     wire [2:0] op;
-    
-    assign PC = PCout;
-    assign IR = IRout;
-    assign Aregin = Ain;
-    assign Areg = Aout;
-    assign Breg = Bout;
-    assign ALUout = ALUoutQ;
-    
-    //outputs for verfification
-    assign IorDO = IorD;    
-    assign IRwriteO = IRwrite;
-    assign MemReadO = MemRead;
-    assign MemWriteO = MemWrite;
-    assign ALUsrcAO = ALUsrcA;     
-    assign PcWriteO = PcWrite;
-    assign PCsourceO = PCsource;
-    assign PCWriteCondO = PCWriteCond;
-    assign RegWriteO = RegWrite;    
-    assign ALUsrcBO = ALUsrcB;    
-    assign SrcRegO = SrcReg;
-    assign state = next;
-    
-    assign PCWriteEnable = PcWrite | (PCWriteCond & branch);   
-              
+	 
+	 assign PCWriteEnable = PcWrite | (PCWriteCond & branch);
+	 
     //   Instruction Fetch    
   
     //PC Source MuxD
@@ -88,7 +62,7 @@ module datapath(
         
     CU ctrlunit(.opcode(IRout[6:0]), .clk(clk), .IorD(IorD), .IRwrite(IRwrite), .MemRead(MemRead), .MemWrite(MemWrite),
     .ALUsrcA(ALUsrcA), .ALUsrcB(ALUsrcB), .ALUop(ALUop), .PcWrite(PcWrite), .PCWriteCond(PCWriteCond), .SrcReg(SrcReg), 
-    .PCsource(PCsource), .RegWrite(RegWrite), .next(next));
+    .PCsource(PCsource), .RegWrite(RegWrite));
     
     //Memory Data Register
     reg32b MDRreg (.clk(clk), .R(1'b0), .WE(1'b1), .D(MDRin), .Q(MDRout));           

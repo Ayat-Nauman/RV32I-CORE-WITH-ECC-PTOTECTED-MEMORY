@@ -12,14 +12,12 @@ module CU(
     output PCWriteCond,
     output [1:0] SrcReg,
     output PCsource,
-    output RegWrite,
-    output [3:0] next
+    output RegWrite  
     ); 
         
     reg [3:0] stateReg = 4'b1111, nextstate;
     reg [16:0] ctrls;
-    wire [3:0] rom1_nxt, rom2_nxt;
-    assign next = stateReg;    
+    wire [3:0] rom1_nxt, rom2_nxt;      
     
     dispatchROM1 rom1 (.opcode(opcode), .nxt(rom1_nxt));
     dispatchROM2 rom2 (.opcode(opcode), .nxt(rom2_nxt));
