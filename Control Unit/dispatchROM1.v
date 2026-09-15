@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module dispatchROM1(
     input [6:0] opcode,
     output reg [3:0] nxt

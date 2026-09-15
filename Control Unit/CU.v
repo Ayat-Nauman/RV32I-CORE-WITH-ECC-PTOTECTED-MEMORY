@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module CU(
     input [6:0] opcode,
     input clk,

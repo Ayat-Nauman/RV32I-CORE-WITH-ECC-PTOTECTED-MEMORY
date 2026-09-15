@@ -52,21 +52,23 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE Memory/ram_256x16A.v
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE "ECC PROTECTED MEMORY/ram_256x16A.v"
+set_global_assignment -name VERILOG_FILE "ECC PROTECTED MEMORY/memoryv2.v"
+set_global_assignment -name VERILOG_FILE "ECC PROTECTED MEMORY/mem_map_decoder.v"
+set_global_assignment -name SYSTEMVERILOG_FILE "ECC PROTECTED MEMORY/ecc_memory.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "ECC PROTECTED MEMORY/ecc_encoder.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "ECC PROTECTED MEMORY/ecc_decoder.sv"
+set_global_assignment -name VERILOG_FILE Registers/regfile.v
+set_global_assignment -name VERILOG_FILE Registers/reg32b.v
+set_global_assignment -name VERILOG_FILE ALU/ImmGen.v
+set_global_assignment -name VERILOG_FILE ALU/branchEvaluator.v
+set_global_assignment -name VERILOG_FILE ALU/ALUcu.v
+set_global_assignment -name VERILOG_FILE ALU/Alu.v
+set_global_assignment -name VERILOG_FILE "Control Unit/dispatchROM2.v"
+set_global_assignment -name VERILOG_FILE "Control Unit/dispatchROM1.v"
+set_global_assignment -name VERILOG_FILE "Control Unit/CU.v"
 set_global_assignment -name SYSTEMVERILOG_FILE UART/uart.sv
 set_global_assignment -name SYSTEMVERILOG_FILE UART/transmitter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE UART/receiver.sv
-set_global_assignment -name VERILOG_FILE regfile.v
-set_global_assignment -name VERILOG_FILE reg32b.v
-set_global_assignment -name VERILOG_FILE ImmGen.v
-set_global_assignment -name VERILOG_FILE funct3Setter.v
-set_global_assignment -name VERILOG_FILE dispatchROM2.v
-set_global_assignment -name VERILOG_FILE dispatchROM1.v
 set_global_assignment -name VERILOG_FILE datapath.v
-set_global_assignment -name VERILOG_FILE CU.v
-set_global_assignment -name VERILOG_FILE branchEvaluator.v
-set_global_assignment -name VERILOG_FILE ALUcu.v
-set_global_assignment -name VERILOG_FILE Alu.v
-set_global_assignment -name VERILOG_FILE mem_map_decoder.v
-set_global_assignment -name VERILOG_FILE Memory/memoryv2.v
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

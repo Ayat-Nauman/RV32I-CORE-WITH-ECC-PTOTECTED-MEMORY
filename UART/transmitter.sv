@@ -41,10 +41,10 @@ always_ff @(posedge clk or negedge rst) begin
 
 		TRANSMITTING: begin
 			tx <= tx_buffer [0]; // transmitting the LSB bit
-			baud_counter++;
+			baud_counter <= baud_counter + 1 ;
 			if (baud_counter == clkdiv) begin
 				baud_counter <= 0;
-				bit_counter++;
+				bit_counter <= bit_counter + 1;
 				tx_buffer <= {1'b0, tx_buffer[10:1]}; //// Shift tx_buffer right by 1 to send the bit to LSB position for transmission
 				if (bit_counter == 11) begin
 					tx_done <= 1;
