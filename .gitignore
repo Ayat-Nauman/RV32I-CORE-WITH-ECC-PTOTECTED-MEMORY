@@ -11,3 +11,4 @@ output_files/
 *.pin
 simulation/
 /Verification/
+work/

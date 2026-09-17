@@ -1,3 +1,16 @@
-BEGIN 1:data_memory:fast:work
-    ram :  1:tb_ecc_memory:fast:work
+BEGIN 3:ecc_interface:fast__1:work
+    write_data :  1:ecc_classes:fast:work
+    read_data :  1:ecc_classes:fast:work
+    clk :  1:ecc_classes:fast:work
+    mem_read :  1:ecc_classes:fast:work
+    address :  1:ecc_classes:fast:work
+    mem_write :  1:ecc_classes:fast:work
+END 
+BEGIN 3:ecc_interface:fast__2:work
+    clk :  1:ecc_top_layered:fast:work
+    write_data :  1:ecc_top_layered:fast:work
+    mem_write :  1:ecc_top_layered:fast:work
+    address :  1:ecc_top_layered:fast:work
+    mem_read :  1:ecc_top_layered:fast:work
+    read_data :  1:ecc_top_layered:fast:work
 END 

@@ -22,8 +22,4 @@ module memory (
 
     assign Data[38:33] = Q_high[5:0]; //only assigning the valid bits discarding additional bits
 
-<<<<<<< HEAD
 endmodule
-=======
-endmodule
->>>>>>> f4d58dda7fb8aef2665fb779d846fdb044300f4a

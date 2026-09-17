@@ -1,10 +1,24 @@
 m255
 K4
 z2
-!s12c _opt1
-Z0 !s99 nomlopt
-!s12c _opt
+Z0 !s12c _opt1
+Z1 !s99 nomlopt
 R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+!s12c _opt2
+R1
+R0
+R1
+!s12c _opt
+R1
 !s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
@@ -12,187 +26,366 @@ R0
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 dC:/questasim64_2024.1/examples
+Z2 dC:/questasim64_2024.1/examples
 T_opt1
-!s110 1788498932
-VIThLJkVWRFgH4CV4YJc;U0
-04 13 4 work tb_ecc_memory fast 0
-=1-e070eac90230-6a9a53f3-2ba-43bc
-R0
-!s12f OEM100
-!s12b OEM100
-!s124 OEM100
-o-quiet -auto_acc_if_foreign -work work
-Z2 tCvgOpt 0
-n@_opt1
-OL;O;2024.1;79
+Z3 !s11d PROTECTED MEMORY/verification/work 1 PROTECTED 1 MEMORY/verification/work 
+Z4 !s11d PROTECTED MEMORY/verification/work 1 ecc_interface 1 D:/work/RV32I-CORE-WITH-ECC-PTOTECTED-MEMORY/ECC 
+Z5 !s11d ecc_classes D:/work/RV32I-CORE-WITH-ECC-PTOTECTED-MEMORY/ECC 0 
+!s110 1789634328
+Vl_UlFA]PA=h`6o<PX^]>a2
+Z6 04 15 4 work ecc_top_layered fast 0
+=1-50a1326df7f6-6aaba718-a8-10a8
 R1
+Z7 !s12f OEM100
+Z8 !s12b OEM100
+Z9 !s124 OEM100
+Z10 o-quiet -auto_acc_if_foreign -work work
+Z11 tCvgOpt 0
+n@_opt1
+Z12 OL;O;2024.1;79
+T_opt2
+R3
+R4
+R5
+!s110 1789632585
+V>hWj8Y[66CW?X=1X1Y`;A0
+R6
+=1-50a1326df7f6-6aaba049-106-780
+R1
+R7
+R8
+R9
+R10
+R11
+n@_opt2
+R12
+R2
 vdata_memory
-Z3 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z4 !s110 1788521631
+Z13 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z14 !s110 1788521631
 !i10b 1
 !s100 4[MKL;7Rf6BDoz]]:UG`72
 I;Im;AIJ^7d7oP4JVfAn=o2
-Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z15 VDg1SIo80bB@j0V0VzS_@n1
 !s105 data_memory_sv_unit
 S1
-Z6 dC:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY
+Z16 dC:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY
 w1788497491
 8C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/data_memory.sv
 FC:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/data_memory.sv
 L0 1
-Z7 OV;L;10.5b;63
+Z17 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z8 !s108 1788521631.000000
+Z18 !s108 1788521631.000000
 !s107 C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/data_memory.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/data_memory.sv|
 !i113 1
-Z9 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R2
+Z19 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R11
+Xecc_classes
+2package.sv
+!s115 ecc_interface
+Z20 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1789634314
+!i10b 1
+!s100 L7;bOf2UlVmAh84XiDfH`2
+IdoDjZ@VJ@07RS8g0WP:H?3
+S1
+Z21 dD:/work/RV32I-CORE-WITH-ECC-PTOTECTED-MEMORY/ECC PROTECTED MEMORY/verification
+w1789634246
+8package.sv
+Fpackage.sv
+!i122 47
+Z22 L0 1 0
+VdoDjZ@VJ@07RS8g0WP:H?3
+Z23 OL;L;2024.1;79
+r1
+!s85 0
+31
+!s108 1789634314.000000
+!s107 package.sv|
+!s90 -reportprogress|300|package.sv|
+!i113 0
+Z24 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R11
 vecc_decoder
-R3
-R4
+2../ecc_decoder.sv
+R20
+!s110 1789634295
 !i10b 1
-!s100 :N;X=]i8^Boah<226e3V[2
-IWI9eRZ=fI9AI2dj9@^HQ>1
-R5
-!s105 ecc_decoder_sv_unit
+!s100 QbCL=G_SglAV?9?zXO?MA0
+IFiS<kcJ7FC4bz7CNBZNi63
 S1
-R6
-w1788497387
-8C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_decoder.sv
-FC:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_decoder.sv
-L0 1
-R7
+R21
+Z25 w1789099312
+8../ecc_decoder.sv
+F../ecc_decoder.sv
+!i122 43
+L0 1 55
+R15
+R23
 r1
 !s85 0
 31
-Z10 !s108 1788521630.000000
-!s107 C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_decoder.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_decoder.sv|
-!i113 1
-R9
-R2
+!s108 1789634294.000000
+!s107 ../ecc_decoder.sv|
+!s90 -reportprogress|300|../ecc_decoder.sv|
+!i113 0
+R24
+R11
 vecc_encoder
-R3
-!s110 1788521630
+2../ecc_encoder.sv
+R20
+!s110 1789634300
 !i10b 1
-!s100 zlnQ59U;?`RHPa>G=Z_Ok1
-IR4a6g2d3o[8SZ0XIN;3AT2
-R5
-!s105 ecc_encoder_sv_unit
+!s100 O:LSaKmT1b?L?OFD^z17[3
+I1gdZZSefYO5QIAleP4m^:3
 S1
-R6
-w1788497356
-8C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_encoder.sv
-FC:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_encoder.sv
-L0 1
-R7
+R21
+R25
+8../ecc_encoder.sv
+F../ecc_encoder.sv
+!i122 44
+L0 1 53
+R15
+R23
 r1
 !s85 0
 31
-R10
-!s107 C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_encoder.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_encoder.sv|
-!i113 1
-R9
-R2
+!s108 1789634300.000000
+!s107 ../ecc_encoder.sv|
+!s90 -reportprogress|300|../ecc_encoder.sv|
+!i113 0
+R24
+R11
+Yecc_interface
+2interface.sv
+R20
+!s110 1789634318
+!i10b 1
+!s100 6aH5ffDe;MhDgEF6F2^Tm0
+I1nO`cX>LjFO17[az0I>Yf3
+S1
+R21
+Z26 w1789632040
+8interface.sv
+Finterface.sv
+!i122 48
+R22
+R15
+R23
+r1
+!s85 0
+31
+!s108 1789634318.000000
+!s107 interface.sv|
+!s90 -reportprogress|300|interface.sv|
+!i113 0
+R24
+R11
 vecc_memory
-R3
-R4
+2../ecc_memory.sv
+R20
+!s110 1789634284
 !i10b 1
-!s100 WlWUVNZ[UX8:F=77FGd9D1
-I@jcDXole3M`>?I>BZ4N900
-R5
-!s105 ecc_memory_sv_unit
+!s100 W;OzCObNY2f^P6>Y8V@>n1
+I8Qz6noLn2YO5SKP[XafQC3
 S1
-R6
-w1788497705
-Z11 8C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_memory.sv
-Z12 FC:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_memory.sv
-L0 1
-R7
+R21
+w1789452020
+8../ecc_memory.sv
+F../ecc_memory.sv
+!i122 42
+Z27 L0 1 34
+R15
+R23
 r1
 !s85 0
 31
-R8
-Z13 !s107 C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_memory.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_memory.sv|
-!i113 1
-R9
-R2
+!s108 1789634284.000000
+!s107 ../ecc_memory.sv|
+!s90 -reportprogress|300|../ecc_memory.sv|
+!i113 0
+R24
+R11
+vecc_top_layered
+Z28 2ecc_top_layered.sv
+R20
+Z29 DXx4 work 11 ecc_classes 0 22 doDjZ@VJ@07RS8g0WP:H?3
+DXx4 work 23 ecc_top_layered_sv_unit 0 22 eBEBRL;onNO4Bga5_6C2K0
+Z30 !s110 1789634321
+R15
+r1
+!s85 0
+!i10b 1
+!s100 6Z2DlYGd4fTV0PT=aEjHc2
+I<D5_:^2jkdPm:Q=1<Kb[]2
+!s105 ecc_top_layered_sv_unit
+S1
+R21
+Z31 w1789634260
+Z32 8ecc_top_layered.sv
+Z33 Fecc_top_layered.sv
+!i122 49
+L0 5 53
+R23
+31
+Z34 !s108 1789634321.000000
+Z35 !s107 ecc_top_layered.sv|
+Z36 !s90 -reportprogress|300|ecc_top_layered.sv|
+!i113 0
+R24
+R11
+Xecc_top_layered_sv_unit
+R28
+R20
+R29
+R30
+VeBEBRL;onNO4Bga5_6C2K0
+r1
+!s85 0
+!i10b 1
+!s100 78[cH;:QOb_J=AY4Yee[Q1
+IeBEBRL;onNO4Bga5_6C2K0
+!i103 1
+S1
+R21
+R31
+R32
+R33
+!i122 49
+L0 3 0
+R23
+31
+R34
+R35
+R36
+!i113 0
+R24
+R11
+vmemory
+2../memory.sv
+R20
+!s110 1789634307
+!i10b 1
+!s100 F@>Uk?_R@DLWb?Rf;5CO72
+I2_n?MD]3?F:6IShieah6S2
+S1
+R21
+w1789634275
+8../memory.sv
+F../memory.sv
+!i122 45
+L0 1 25
+R15
+R23
+r1
+!s85 0
+31
+!s108 1789634307.000000
+!s107 ../memory.sv|
+!s90 -reportprogress|300|../memory.sv|
+!i113 0
+R24
+R11
+vram_256x16A
+2../ram_256x16A.sv
+R20
+!s110 1789634311
+!i10b 1
+!s100 GjiniQXnKk?XPdJIIA@W81
+IOSig>zHnF[CA0zi=S^OTE1
+S1
+R21
+R26
+8../ram_256x16A.sv
+F../ram_256x16A.sv
+!i122 46
+L0 1 21
+R15
+R23
+r1
+!s85 0
+31
+!s108 1789634311.000000
+!s107 ../ram_256x16A.sv|
+!s90 -reportprogress|300|../ram_256x16A.sv|
+!i113 0
+R24
+R11
+nram_256x16@a
 vself_checking_tb
-R3
-R4
+R13
+R14
 !i10b 1
 !s100 5HDAdQzZ;6]V@SbEb?ETN2
 ICbmak<hk2`ELc_3m87=6]0
-R5
+R15
 !s105 self_checking_tb_sv_unit
 S1
-R6
+R16
 w1788521587
 8C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/self_checking_tb.sv
 FC:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/self_checking_tb.sv
 L0 3
-R7
+R17
 r1
 !s85 0
 31
-R8
+R18
 !s107 C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/self_checking_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/self_checking_tb.sv|
 !i113 1
-R9
-R2
+R19
+R11
 vtb_ecc_memory
-R3
-R4
+R13
+R14
 !i10b 1
 !s100 GG2?NBBRCoCaJ>jgmO6Qn1
 Igb=GdmgTKN1T`VAD9NegF3
-R5
+R15
 !s105 tb_ecc_memory_sv_unit
 S1
-R6
+R16
 w1788521627
 8C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/tb_ecc_memory.sv
 FC:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/tb_ecc_memory.sv
 L0 3
-R7
+R17
 r1
 !s85 0
 31
-R8
+R18
 !s107 C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/tb_ecc_memory.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/tb_ecc_memory.sv|
 !i113 1
-R9
-R2
+R19
+R11
 vtop_memory_ecc
 2C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_memory.sv
-DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+R20
 !s110 1788497628
 !i10b 1
 !s100 D1UdabP5TIb>ge=SEG^;z2
 IofX_OHbAUXnP21AXSczWg0
 S1
-R6
+R16
 w1788497551
-R11
-R12
+8C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_memory.sv
+FC:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_memory.sv
 !i122 11
-L0 1 34
-R5
-OL;L;2024.1;79
+R27
+R15
+R23
 r1
 !s85 0
 31
 !s108 1788497627.000000
-R13
+!s107 C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_memory.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/Noman Traders/Desktop/AYAT/MODELSIM/ECC PROTECTED MEMORY/ecc_memory.sv|
 !i113 0
-R9
-R2
+R19
+R11
