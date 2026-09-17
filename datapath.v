@@ -1,61 +1,18 @@
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/01/2025 07:28:34 PM
-// Design Name: 
-// Module Name: datapath
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 module datapath(
     input clk,
-    output [31:0] PC, IR, Aregin, ALUout, Areg, Breg,
-    output IorDO, IRwriteO, MemReadO, MemWriteO, ALUsrcAO, PcWriteO, PCsourceO, PCWriteCondO, RegWriteO,    
-    output [1:0] ALUsrcBO, SrcRegO,
-    output [3:0] state
+	 input rst,
+	 input rx,
+	 output tx
     );
       
     reg [31:0] PCin, MemAddress, src1, src2, RegData;
     wire [31:0] PCout, IRin, IRout, MemDatain, MemDataout, MDRin, MDRout, ImmOut, Ain, Aout, Bin, Bout, ALUoutD, ALUoutQ;
     wire IorD, IRwrite, MemRead, MemWrite, ALUsrcA, PcWrite, PCsource, PCWriteCond, PCWriteEnable, RegWrite, branch, zero;
-    wire [1:0] ALUsrcB, ALUop, SrcReg; 
-    wire [3:0] next;
-    wire [2:0] funct3, op;
-    
-    assign PC = PCout;
-    assign IR = IRout;
-    assign Aregin = Ain;
-    assign Areg = Aout;
-    assign Breg = Bout;
-    assign ALUout = ALUoutQ;
-    
-    //outputs for verfification
-    assign IorDO = IorD;    
-    assign IRwriteO = IRwrite;
-    assign MemReadO = MemRead;
-    assign MemWriteO = MemWrite;
-    assign ALUsrcAO = ALUsrcA;     
-    assign PcWriteO = PcWrite;
-    assign PCsourceO = PCsource;
-    assign PCWriteCondO = PCWriteCond;
-    assign RegWriteO = RegWrite;    
-    assign ALUsrcBO = ALUsrcB;    
-    assign SrcRegO = SrcReg;
-    assign state = next;
-    
-    assign PCWriteEnable = PcWrite | (PCWriteCond & branch);   
-              
+    wire [1:0] ALUsrcB, ALUop, SrcReg;     
+    wire [2:0] op;
+	 
+	 assign PCWriteEnable = PcWrite | (PCWriteCond & branch);
+	 
     //   Instruction Fetch    
   
     //PC Source MuxD
@@ -67,7 +24,7 @@ module datapath(
     end    
 
     //Program Counter Register                
-    reg32b PCreg (.clk(clk), .R(1'b0), .WE(PCWriteEnable), .D(PCin), .Q(PCout));
+    reg32b PCreg (.clk(clk), .R(!rst), .WE(PCWriteEnable), .D(PCin), .Q(PCout));
     
     // Instruction or Data mux
     always @(*) begin
@@ -82,16 +39,30 @@ module datapath(
     assign MemDatain = Bout;
     assign IRin = MemDataout;
     assign MDRin = MemDataout;
-    memory mem(.clk(clk), .Address(MemAddress), .WriteData(MemDatain), .MemRead(MemRead), .MemWrite(MemWrite), .Data(MemDataout));   
+	 
+	 // memory
+	 mem_map_decoder mmap_decoder (
+		.clk(clk), 
+		.rst(rst),
+		.Address(MemAddress), 
+		.WriteData(MemDatain),
+		.MemRead(MemRead), 
+		.MemWrite(MemWrite), 
+		.ReadData(MemDataout), 
+		.rx(rx), 
+		.tx(tx)
+	);
+
+//    memory mem(.clk(clk), .Address(MemAddress), .WriteData(MemDatain), .MemRead(MemRead), .MemWrite(MemWrite), .Data(MemDataout));   
       
     //Instruction Register
     reg32b IRreg (.clk(clk), .R(1'b0), .WE(IRwrite), .D(IRin), .Q(IRout));
         
-    //   Instruction Decode   //------------------------ 
+    //   Instruction Decode
         
-    CU ctrlunit(.opcode(IRout), .clk(clk), .IorD(IorD), .IRwrite(IRwrite), .MemRead(MemRead), .MemWrite(MemWrite),
+    CU ctrlunit(.opcode(IRout[6:0]), .clk(clk), .IorD(IorD), .IRwrite(IRwrite), .MemRead(MemRead), .MemWrite(MemWrite),
     .ALUsrcA(ALUsrcA), .ALUsrcB(ALUsrcB), .ALUop(ALUop), .PcWrite(PcWrite), .PCWriteCond(PCWriteCond), .SrcReg(SrcReg), 
-    .PCsource(PCsource), .RegWrite(RegWrite), .next(next));
+    .PCsource(PCsource), .RegWrite(RegWrite));
     
     //Memory Data Register
     reg32b MDRreg (.clk(clk), .R(1'b0), .WE(1'b1), .D(MDRin), .Q(MDRout));           
@@ -128,15 +99,15 @@ module datapath(
         endcase
     end
             
-    //funct3 setter           
-    funct3Setter setter (.funct3(IRout[14:12]), .PCWriteCond(PCWriteCond), .Setfunct3(funct3));
-     
+//    //funct3 setter (removed as it was redundant)          
+//    funct3Setter setter (.funct3(IRout[14:12]), .PCWriteCond(PCWriteCond), .Setfunct3(funct3));
+	 
     //ALU            
-    ALUcu alucu(.funct3(funct3), .ALUop(ALUop), .funct7b5(IRout[30]), .op(op));
+    ALUcu alucu(.funct3(IRout[14:12]), .ALUop(ALUop), .funct7b5(IRout[30]), .opcodeb5(IRout[5]), .op(op));
     ALU alu(.src1(src1), .src2(src2), .op(op), .ALUout(ALUoutD), .zero(zero));
     
     //Bracnh Evaluator as sub is done for all branhces, used to extract the right info from sub result
-    branchEvaluator beval(.PCWriteCond(PCWriteCond), .funct3(IRout[14:12]), .x(ALUoutD), .z(zero), .branch(branch));
+    branchEvaluator beval(.PCWriteCond(PCWriteCond), .funct3(IRout[14:12]), .sign(ALUoutD[31]), .z(zero), .branch(branch));
 
     //register to hold ALU results
     reg32b ALUoutReg (.clk(clk), .R(1'b0), .WE(1'b1), .D(ALUoutD), .Q(ALUoutQ));    
