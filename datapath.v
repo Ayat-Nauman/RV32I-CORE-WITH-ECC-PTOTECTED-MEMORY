@@ -24,7 +24,7 @@ module datapath(
     end    
 
     //Program Counter Register                
-    reg32b PCreg (.clk(clk), .R(1'b0), .WE(PCWriteEnable), .D(PCin), .Q(PCout));
+    reg32b PCreg (.clk(clk), .R(!rst), .WE(PCWriteEnable), .D(PCin), .Q(PCout));
     
     // Instruction or Data mux
     always @(*) begin
@@ -103,7 +103,7 @@ module datapath(
 //    funct3Setter setter (.funct3(IRout[14:12]), .PCWriteCond(PCWriteCond), .Setfunct3(funct3));
 	 
     //ALU            
-    ALUcu alucu(.funct3(IRout[14:12]), .ALUop(ALUop), .funct7b5(IRout[30]), .op(op));
+    ALUcu alucu(.funct3(IRout[14:12]), .ALUop(ALUop), .funct7b5(IRout[30]), .opcodeb5(IRout[5]), .op(op));
     ALU alu(.src1(src1), .src2(src2), .op(op), .ALUout(ALUoutD), .zero(zero));
     
     //Bracnh Evaluator as sub is done for all branhces, used to extract the right info from sub result

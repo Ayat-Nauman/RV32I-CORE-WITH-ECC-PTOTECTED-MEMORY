@@ -121,13 +121,34 @@ module mem_map_decoder (
             end
         end
     end
+    
+    // SYNCHRONOUS READ LOGIC (Mimicking SRAM behavior)
+    reg [31:0] uart_read_reg;
+    reg        last_was_uart;
+
+    always @(posedge clk or negedge rst) begin
+        if (!rst) begin
+            uart_read_reg <= 32'd0;
+            last_was_uart <= 1'b0;
+        end else if (MemRead) begin
+            // On the clock edge during a MemRead, latch the data and source
+            if (is_uart_status) begin
+                uart_read_reg <= {30'b0, tx_busy, rx_ready};
+                last_was_uart <= 1'b1;
+            end else if (is_uart_data) begin
+                uart_read_reg <= rx_buffer;
+                last_was_uart <= 1'b1;
+            end else begin
+                last_was_uart <= 1'b0; // CPU is reading RAM
+            end
+        end
+        // If MemRead is 0 (like in State 9 Wait and State 10 Writeback), the registers hold their previous values perfectly
+    end
 
     // Read Multiplexer (Routing Data to CPU)
     always @(*) begin
-        if (is_uart_status && MemRead) begin
-            ReadData = {30'b0, tx_busy, rx_ready};
-        end else if (is_uart_data && MemRead) begin
-            ReadData = rx_buffer;
+        if (last_was_uart) begin
+            ReadData = uart_read_reg;
         end else begin
             ReadData = mem_read_data;
         end

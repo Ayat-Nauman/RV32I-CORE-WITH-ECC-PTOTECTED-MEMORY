@@ -1,6 +1,7 @@
 module ALUcu(
     input [2:0] funct3,
     input [1:0] ALUop,
+    input opcodeb5,
     input funct7b5,
     output reg [2:0] op
     );
@@ -12,7 +13,7 @@ module ALUcu(
             2'b10: begin
                 case (funct3)
                     3'b000: begin
-                        if(funct7b5 == 1'b0)
+                        if(funct7b5 == 1'b0 || ~opcodeb5) //~opcodeb5 is 1 only for I type
                             op = 3'b011; // add/addi
                         else
                             op = 3'b100; // sub
