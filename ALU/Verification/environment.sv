@@ -1,0 +1,41 @@
+class environment;
+    generator  gen;
+    driver     drv;
+    monitor    mon;
+    scoreboard scb;
+    coverage_collector cov;
+
+    mailbox gen2drv;
+    mailbox mon2scb;
+    mailbox mon2cov;
+    virtual ex_intf vif;
+
+    function new(virtual ex_intf vif);
+        this.vif = vif;
+        gen2drv = new();
+        mon2scb = new();
+        mon2cov = new();
+        
+        gen = new(gen2drv);
+        drv = new(vif, gen2drv);
+        mon = new(vif, mon2scb, mon2cov);
+        scb = new(mon2scb);
+        cov = new(vif, mon2cov);
+    endfunction
+
+    task run();
+        fork
+            gen.run();
+            drv.run();
+            mon.run();
+            scb.run();
+            cov.run();
+        join_none
+        
+        wait(gen.gen_done.triggered);
+        wait(gen2drv.num() == 0);
+        #50;
+        scb.report();
+        $display("[COVERAGE] Score: %0.2f%%", cov.cg_ex.get_coverage());
+    endtask
+endclass
