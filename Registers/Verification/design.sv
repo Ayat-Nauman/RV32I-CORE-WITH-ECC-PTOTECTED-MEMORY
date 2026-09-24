@@ -1,0 +1,46 @@
+module reg32b(
+    input clk,
+    input R,
+    input WE,
+    input [31:0] D,
+    output reg [31:0] Q
+    );
+
+    initial Q = 32'h00000000; // non synthesizable, should be removed
+
+    always @(posedge clk) begin
+        if (R)
+            Q <= 32'h0000000;
+        else if (WE)
+            Q <= D;
+    end
+endmodule
+
+
+module regfile(
+    input clk,
+    input [4:0] ReadReg1,
+    input [4:0] ReadReg2,
+    input [4:0] WriteReg,
+    input [31:0] WriteData,
+    input RegWrite,
+    output [31:0] ReadData1,
+    output [31:0] ReadData2
+    );
+
+    reg [31:0] mem[0:31];
+    assign ReadData1 = mem[ReadReg1];
+    assign ReadData2 = mem[ReadReg2];
+
+    //initializing the reg file
+    integer i;
+    initial begin
+        for(i = 0; i < 32; i = i+1)
+            mem[i] = 0;
+    end
+
+    always @(posedge clk) begin
+        if (RegWrite && WriteReg != 0)
+            mem[WriteReg] <= WriteData;
+    end
+endmodule
