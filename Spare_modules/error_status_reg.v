@@ -8,7 +8,7 @@ module error_status_reg(
     output reg dbe_sticky,
     output reg [7:0] sbe_count,
     output reg [7:0] dbe_count
-    );
+); 
 
     always @(posedge clk) begin
         if (clear) begin
