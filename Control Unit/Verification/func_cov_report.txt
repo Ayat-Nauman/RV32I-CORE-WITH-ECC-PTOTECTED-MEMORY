@@ -1,0 +1,174 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /top_tb/u_intf
+=== Design Unit: work.cu_intf
+=================================================================================
+
+Assertion Coverage:
+    Assertions                      14        14         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top_tb/u_intf/assert_cu_fetch
+                     interface.sv(21)                   0          1
+/top_tb/u_intf/assert_cu_decode
+                     interface.sv(28)                   0          1
+/top_tb/u_intf/assert_cu_rtype_exec
+                     interface.sv(35)                   0          1
+/top_tb/u_intf/assert_cu_state_rtype_wb
+                     interface.sv(42)                   0          1
+/top_tb/u_intf/assert_cu_state_itype_exec
+                     interface.sv(49)                   0          1
+/top_tb/u_intf/assert_cu_state_itype_wb
+                     interface.sv(56)                   0          1
+/top_tb/u_intf/assert_cu_state_mem_exec
+                     interface.sv(63)                   0          1
+/top_tb/u_intf/assert_cu_state_lw_mem
+                     interface.sv(70)                   0          1
+/top_tb/u_intf/assert_cu_state_lw_wb
+                     interface.sv(77)                   0          1
+/top_tb/u_intf/assert_cu_state_sw_mem
+                     interface.sv(84)                   0          1
+/top_tb/u_intf/assert_cu_state_branch_ex
+                     interface.sv(91)                   0          1
+/top_tb/u_intf/assert_cu_state_lui_ex
+                     interface.sv(98)                   0          1
+/top_tb/u_intf/assert_cu_state_jalr_ex
+                     interface.sv(105)                  0          1
+/top_tb/u_intf/assert_cu_state_jal_ex
+                     interface.sv(112)                  0          1
+
+=================================================================================
+=== Instance: /cu_pkg
+=== Design Unit: work.cu_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses          1        na        na        na
+            Covergroup Bins          9         9         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /cu_pkg/coverage_collector/cg_cu_opcodes        100.00%        100          -    Covered              
+    covered/total bins:                                     9          9          -                      
+    missing/total bins:                                     0          9          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_opcode                              100.00%        100          -    Covered              
+        covered/total bins:                                 9          9          -                      
+        missing/total bins:                                 0          9          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin r_type                                          4          1          -    Covered              
+        bin i_type                                          7          1          -    Covered              
+        bin lw                                              5          1          -    Covered              
+        bin sw                                              8          1          -    Covered              
+        bin branch                                          4          1          -    Covered              
+        bin lui                                             2          1          -    Covered              
+        bin jalr                                            8          1          -    Covered              
+        bin jal                                             7          1          -    Covered              
+        bin auipc                                           5          1          -    Covered              
+        default bin invalid_opcode                         10                     -    Occurred             
+ Covergroup instance \/cu_pkg::coverage_collector::cg_cu_opcodes  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                     9          9          -                      
+    missing/total bins:                                     0          9          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_opcode                              100.00%        100          -    Covered              
+        covered/total bins:                                 9          9          -                      
+        missing/total bins:                                 0          9          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin r_type                                          4          1          -    Covered              
+        bin i_type                                          7          1          -    Covered              
+        bin lw                                              5          1          -    Covered              
+        bin sw                                              8          1          -    Covered              
+        bin branch                                          4          1          -    Covered              
+        bin lui                                             2          1          -    Covered              
+        bin jalr                                            8          1          -    Covered              
+        bin jal                                             7          1          -    Covered              
+        bin auipc                                           5          1          -    Covered              
+        default bin invalid_opcode                         10                     -    Occurred             
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /cu_pkg/coverage_collector/cg_cu_opcodes        100.00%        100          -    Covered              
+    covered/total bins:                                     9          9          -                      
+    missing/total bins:                                     0          9          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_opcode                              100.00%        100          -    Covered              
+        covered/total bins:                                 9          9          -                      
+        missing/total bins:                                 0          9          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin r_type                                          4          1          -    Covered              
+        bin i_type                                          7          1          -    Covered              
+        bin lw                                              5          1          -    Covered              
+        bin sw                                              8          1          -    Covered              
+        bin branch                                          4          1          -    Covered              
+        bin lui                                             2          1          -    Covered              
+        bin jalr                                            8          1          -    Covered              
+        bin jal                                             7          1          -    Covered              
+        bin auipc                                           5          1          -    Covered              
+        default bin invalid_opcode                         10                     -    Occurred             
+ Covergroup instance \/cu_pkg::coverage_collector::cg_cu_opcodes  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                     9          9          -                      
+    missing/total bins:                                     0          9          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_opcode                              100.00%        100          -    Covered              
+        covered/total bins:                                 9          9          -                      
+        missing/total bins:                                 0          9          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin r_type                                          4          1          -    Covered              
+        bin i_type                                          7          1          -    Covered              
+        bin lw                                              5          1          -    Covered              
+        bin sw                                              8          1          -    Covered              
+        bin branch                                          4          1          -    Covered              
+        bin lui                                             2          1          -    Covered              
+        bin jalr                                            8          1          -    Covered              
+        bin jal                                             7          1          -    Covered              
+        bin auipc                                           5          1          -    Covered              
+        default bin invalid_opcode                         10                     -    Occurred             
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top_tb/u_intf/assert_cu_fetch
+                     interface.sv(21)                   0          1
+/top_tb/u_intf/assert_cu_decode
+                     interface.sv(28)                   0          1
+/top_tb/u_intf/assert_cu_rtype_exec
+                     interface.sv(35)                   0          1
+/top_tb/u_intf/assert_cu_state_rtype_wb
+                     interface.sv(42)                   0          1
+/top_tb/u_intf/assert_cu_state_itype_exec
+                     interface.sv(49)                   0          1
+/top_tb/u_intf/assert_cu_state_itype_wb
+                     interface.sv(56)                   0          1
+/top_tb/u_intf/assert_cu_state_mem_exec
+                     interface.sv(63)                   0          1
+/top_tb/u_intf/assert_cu_state_lw_mem
+                     interface.sv(70)                   0          1
+/top_tb/u_intf/assert_cu_state_lw_wb
+                     interface.sv(77)                   0          1
+/top_tb/u_intf/assert_cu_state_sw_mem
+                     interface.sv(84)                   0          1
+/top_tb/u_intf/assert_cu_state_branch_ex
+                     interface.sv(91)                   0          1
+/top_tb/u_intf/assert_cu_state_lui_ex
+                     interface.sv(98)                   0          1
+/top_tb/u_intf/assert_cu_state_jalr_ex
+                     interface.sv(105)                  0          1
+/top_tb/u_intf/assert_cu_state_jal_ex
+                     interface.sv(112)                  0          1
+
+Total Coverage By Instance (filtered view): 100.00%
+

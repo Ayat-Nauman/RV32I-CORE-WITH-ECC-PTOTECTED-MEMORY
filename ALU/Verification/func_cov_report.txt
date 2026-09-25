@@ -1,0 +1,630 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /top_tb/u_intf
+=== Design Unit: work.ex_intf
+=================================================================================
+
+Assertion Coverage:
+    Assertions                      13        12         1    92.30%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top_tb/u_intf/assert_alu_zero
+                     interface.sv(20)                   0          1
+/top_tb/u_intf/assert_alu_add
+                     interface.sv(27)                   0          1
+/top_tb/u_intf/assert_alu_sub
+                     interface.sv(34)                   0          1
+/top_tb/u_intf/assert_alu_and
+                     interface.sv(41)                   0          1
+/top_tb/u_intf/assert_alu_or
+                     interface.sv(47)                   0          1
+/top_tb/u_intf/assert_alu_xor
+                     interface.sv(53)                   0          1
+/top_tb/u_intf/assert_alu_slt
+                     interface.sv(59)                  36          1
+/top_tb/u_intf/assert_alu_sll
+                     interface.sv(67)                   0          1
+/top_tb/u_intf/assert_alu_srl
+                     interface.sv(73)                   0          1
+/top_tb/u_intf/assert_branch_beq
+                     interface.sv(81)                   0          1
+/top_tb/u_intf/assert_branch_bne
+                     interface.sv(88)                   0          1
+/top_tb/u_intf/assert_branch_blt
+                     interface.sv(95)                   0          1
+/top_tb/u_intf/assert_branch_bge
+                     interface.sv(102)                  0          1
+
+=================================================================================
+=== Instance: /ex_pkg
+=== Design Unit: work.ex_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses          8        na        na        na
+            Covergroup Bins         94        94         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /ex_pkg/coverage_collector/cg_ex                100.00%        100          -    Covered              
+    covered/total bins:                                    94         94          -                      
+    missing/total bins:                                     0         94          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_src1                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          231          1          -    Covered              
+        bin all_ones                                      266          1          -    Covered              
+        bin positive                                     2313          1          -    Covered              
+        bin negative                                     2188          1          -    Covered              
+    Coverpoint cp_src2                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          212          1          -    Covered              
+        bin all_ones                                      243          1          -    Covered              
+        bin positive                                     2269          1          -    Covered              
+        bin negative                                     2274          1          -    Covered              
+    Coverpoint cp_alu_op                              100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin op_and                                       1543          1          -    Covered              
+        bin op_or                                         145          1          -    Covered              
+        bin op_xor                                        164          1          -    Covered              
+        bin op_add                                       1337          1          -    Covered              
+        bin op_sub                                       1339          1          -    Covered              
+        bin op_slt                                        158          1          -    Covered              
+        bin op_sll                                        154          1          -    Covered              
+        bin op_srl                                        158          1          -    Covered              
+    Coverpoint cp_branch_type                         100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin beq                                           289          1          -    Covered              
+        bin bne                                           280          1          -    Covered              
+        bin blt                                           325          1          -    Covered              
+        bin bge                                           337          1          -    Covered              
+    Coverpoint cp_branch_taken                        100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_taken                                    1830          1          -    Covered              
+        bin taken                                         615          1          -    Covered              
+    Cross cross_branch_eval                           100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <bge,taken>                               218          1          -    Covered              
+            bin <blt,taken>                               119          1          -    Covered              
+            bin <bne,taken>                               269          1          -    Covered              
+            bin <beq,taken>                                 9          1          -    Covered              
+            bin <bge,not_taken>                           119          1          -    Covered              
+            bin <blt,not_taken>                           206          1          -    Covered              
+            bin <bne,not_taken>                            11          1          -    Covered              
+            bin <beq,not_taken>                           280          1          -    Covered              
+    Cross cross_alu_src1                              100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <op_srl,negative>                          79          1          -    Covered              
+            bin <op_sll,negative>                          66          1          -    Covered              
+            bin <op_slt,negative>                          72          1          -    Covered              
+            bin <op_sub,negative>                         582          1          -    Covered              
+            bin <op_add,negative>                         578          1          -    Covered              
+            bin <op_xor,negative>                          85          1          -    Covered              
+            bin <op_or,negative>                           62          1          -    Covered              
+            bin <op_and,negative>                         664          1          -    Covered              
+            bin <op_srl,positive>                          63          1          -    Covered              
+            bin <op_sll,positive>                          79          1          -    Covered              
+            bin <op_slt,positive>                          71          1          -    Covered              
+            bin <op_sub,positive>                         644          1          -    Covered              
+            bin <op_add,positive>                         610          1          -    Covered              
+            bin <op_xor,positive>                          63          1          -    Covered              
+            bin <op_or,positive>                           69          1          -    Covered              
+            bin <op_and,positive>                         714          1          -    Covered              
+            bin <op_srl,all_ones>                           8          1          -    Covered              
+            bin <op_sll,all_ones>                           3          1          -    Covered              
+            bin <op_slt,all_ones>                           9          1          -    Covered              
+            bin <op_sub,all_ones>                          62          1          -    Covered              
+            bin <op_add,all_ones>                          81          1          -    Covered              
+            bin <op_xor,all_ones>                           6          1          -    Covered              
+            bin <op_or,all_ones>                           10          1          -    Covered              
+            bin <op_and,all_ones>                          87          1          -    Covered              
+            bin <op_srl,zero>                               8          1          -    Covered              
+            bin <op_sll,zero>                               6          1          -    Covered              
+            bin <op_slt,zero>                               6          1          -    Covered              
+            bin <op_sub,zero>                              51          1          -    Covered              
+            bin <op_add,zero>                              68          1          -    Covered              
+            bin <op_xor,zero>                              10          1          -    Covered              
+            bin <op_or,zero>                                4          1          -    Covered              
+            bin <op_and,zero>                              78          1          -    Covered              
+    Cross cross_alu_src2                              100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <op_srl,negative>                          56          1          -    Covered              
+            bin <op_sll,negative>                          66          1          -    Covered              
+            bin <op_slt,negative>                          64          1          -    Covered              
+            bin <op_sub,negative>                         633          1          -    Covered              
+            bin <op_add,negative>                         619          1          -    Covered              
+            bin <op_xor,negative>                          77          1          -    Covered              
+            bin <op_or,negative>                           65          1          -    Covered              
+            bin <op_and,negative>                         694          1          -    Covered              
+            bin <op_srl,positive>                          81          1          -    Covered              
+            bin <op_sll,positive>                          71          1          -    Covered              
+            bin <op_slt,positive>                          78          1          -    Covered              
+            bin <op_sub,positive>                         594          1          -    Covered              
+            bin <op_add,positive>                         594          1          -    Covered              
+            bin <op_xor,positive>                          72          1          -    Covered              
+            bin <op_or,positive>                           66          1          -    Covered              
+            bin <op_and,positive>                         713          1          -    Covered              
+            bin <op_srl,all_ones>                          11          1          -    Covered              
+            bin <op_sll,all_ones>                           6          1          -    Covered              
+            bin <op_slt,all_ones>                           7          1          -    Covered              
+            bin <op_sub,all_ones>                          64          1          -    Covered              
+            bin <op_add,all_ones>                          70          1          -    Covered              
+            bin <op_xor,all_ones>                           8          1          -    Covered              
+            bin <op_or,all_ones>                            3          1          -    Covered              
+            bin <op_and,all_ones>                          74          1          -    Covered              
+            bin <op_srl,zero>                              10          1          -    Covered              
+            bin <op_sll,zero>                              11          1          -    Covered              
+            bin <op_slt,zero>                               9          1          -    Covered              
+            bin <op_sub,zero>                              48          1          -    Covered              
+            bin <op_add,zero>                              54          1          -    Covered              
+            bin <op_xor,zero>                               7          1          -    Covered              
+            bin <op_or,zero>                               11          1          -    Covered              
+            bin <op_and,zero>                              62          1          -    Covered              
+ Covergroup instance \/ex_pkg::coverage_collector::cg_ex  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    94         94          -                      
+    missing/total bins:                                     0         94          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_src1                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          231          1          -    Covered              
+        bin all_ones                                      266          1          -    Covered              
+        bin positive                                     2313          1          -    Covered              
+        bin negative                                     2188          1          -    Covered              
+    Coverpoint cp_src2                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          212          1          -    Covered              
+        bin all_ones                                      243          1          -    Covered              
+        bin positive                                     2269          1          -    Covered              
+        bin negative                                     2274          1          -    Covered              
+    Coverpoint cp_alu_op                              100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin op_and                                       1543          1          -    Covered              
+        bin op_or                                         145          1          -    Covered              
+        bin op_xor                                        164          1          -    Covered              
+        bin op_add                                       1337          1          -    Covered              
+        bin op_sub                                       1339          1          -    Covered              
+        bin op_slt                                        158          1          -    Covered              
+        bin op_sll                                        154          1          -    Covered              
+        bin op_srl                                        158          1          -    Covered              
+    Coverpoint cp_branch_type                         100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin beq                                           289          1          -    Covered              
+        bin bne                                           280          1          -    Covered              
+        bin blt                                           325          1          -    Covered              
+        bin bge                                           337          1          -    Covered              
+    Coverpoint cp_branch_taken                        100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_taken                                    1830          1          -    Covered              
+        bin taken                                         615          1          -    Covered              
+    Cross cross_branch_eval                           100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <bge,taken>                               218          1          -    Covered              
+            bin <blt,taken>                               119          1          -    Covered              
+            bin <bne,taken>                               269          1          -    Covered              
+            bin <beq,taken>                                 9          1          -    Covered              
+            bin <bge,not_taken>                           119          1          -    Covered              
+            bin <blt,not_taken>                           206          1          -    Covered              
+            bin <bne,not_taken>                            11          1          -    Covered              
+            bin <beq,not_taken>                           280          1          -    Covered              
+    Cross cross_alu_src1                              100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <op_srl,negative>                          79          1          -    Covered              
+            bin <op_sll,negative>                          66          1          -    Covered              
+            bin <op_slt,negative>                          72          1          -    Covered              
+            bin <op_sub,negative>                         582          1          -    Covered              
+            bin <op_add,negative>                         578          1          -    Covered              
+            bin <op_xor,negative>                          85          1          -    Covered              
+            bin <op_or,negative>                           62          1          -    Covered              
+            bin <op_and,negative>                         664          1          -    Covered              
+            bin <op_srl,positive>                          63          1          -    Covered              
+            bin <op_sll,positive>                          79          1          -    Covered              
+            bin <op_slt,positive>                          71          1          -    Covered              
+            bin <op_sub,positive>                         644          1          -    Covered              
+            bin <op_add,positive>                         610          1          -    Covered              
+            bin <op_xor,positive>                          63          1          -    Covered              
+            bin <op_or,positive>                           69          1          -    Covered              
+            bin <op_and,positive>                         714          1          -    Covered              
+            bin <op_srl,all_ones>                           8          1          -    Covered              
+            bin <op_sll,all_ones>                           3          1          -    Covered              
+            bin <op_slt,all_ones>                           9          1          -    Covered              
+            bin <op_sub,all_ones>                          62          1          -    Covered              
+            bin <op_add,all_ones>                          81          1          -    Covered              
+            bin <op_xor,all_ones>                           6          1          -    Covered              
+            bin <op_or,all_ones>                           10          1          -    Covered              
+            bin <op_and,all_ones>                          87          1          -    Covered              
+            bin <op_srl,zero>                               8          1          -    Covered              
+            bin <op_sll,zero>                               6          1          -    Covered              
+            bin <op_slt,zero>                               6          1          -    Covered              
+            bin <op_sub,zero>                              51          1          -    Covered              
+            bin <op_add,zero>                              68          1          -    Covered              
+            bin <op_xor,zero>                              10          1          -    Covered              
+            bin <op_or,zero>                                4          1          -    Covered              
+            bin <op_and,zero>                              78          1          -    Covered              
+    Cross cross_alu_src2                              100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <op_srl,negative>                          56          1          -    Covered              
+            bin <op_sll,negative>                          66          1          -    Covered              
+            bin <op_slt,negative>                          64          1          -    Covered              
+            bin <op_sub,negative>                         633          1          -    Covered              
+            bin <op_add,negative>                         619          1          -    Covered              
+            bin <op_xor,negative>                          77          1          -    Covered              
+            bin <op_or,negative>                           65          1          -    Covered              
+            bin <op_and,negative>                         694          1          -    Covered              
+            bin <op_srl,positive>                          81          1          -    Covered              
+            bin <op_sll,positive>                          71          1          -    Covered              
+            bin <op_slt,positive>                          78          1          -    Covered              
+            bin <op_sub,positive>                         594          1          -    Covered              
+            bin <op_add,positive>                         594          1          -    Covered              
+            bin <op_xor,positive>                          72          1          -    Covered              
+            bin <op_or,positive>                           66          1          -    Covered              
+            bin <op_and,positive>                         713          1          -    Covered              
+            bin <op_srl,all_ones>                          11          1          -    Covered              
+            bin <op_sll,all_ones>                           6          1          -    Covered              
+            bin <op_slt,all_ones>                           7          1          -    Covered              
+            bin <op_sub,all_ones>                          64          1          -    Covered              
+            bin <op_add,all_ones>                          70          1          -    Covered              
+            bin <op_xor,all_ones>                           8          1          -    Covered              
+            bin <op_or,all_ones>                            3          1          -    Covered              
+            bin <op_and,all_ones>                          74          1          -    Covered              
+            bin <op_srl,zero>                              10          1          -    Covered              
+            bin <op_sll,zero>                              11          1          -    Covered              
+            bin <op_slt,zero>                               9          1          -    Covered              
+            bin <op_sub,zero>                              48          1          -    Covered              
+            bin <op_add,zero>                              54          1          -    Covered              
+            bin <op_xor,zero>                               7          1          -    Covered              
+            bin <op_or,zero>                               11          1          -    Covered              
+            bin <op_and,zero>                              62          1          -    Covered              
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /ex_pkg/coverage_collector/cg_ex                100.00%        100          -    Covered              
+    covered/total bins:                                    94         94          -                      
+    missing/total bins:                                     0         94          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_src1                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          231          1          -    Covered              
+        bin all_ones                                      266          1          -    Covered              
+        bin positive                                     2313          1          -    Covered              
+        bin negative                                     2188          1          -    Covered              
+    Coverpoint cp_src2                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          212          1          -    Covered              
+        bin all_ones                                      243          1          -    Covered              
+        bin positive                                     2269          1          -    Covered              
+        bin negative                                     2274          1          -    Covered              
+    Coverpoint cp_alu_op                              100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin op_and                                       1543          1          -    Covered              
+        bin op_or                                         145          1          -    Covered              
+        bin op_xor                                        164          1          -    Covered              
+        bin op_add                                       1337          1          -    Covered              
+        bin op_sub                                       1339          1          -    Covered              
+        bin op_slt                                        158          1          -    Covered              
+        bin op_sll                                        154          1          -    Covered              
+        bin op_srl                                        158          1          -    Covered              
+    Coverpoint cp_branch_type                         100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin beq                                           289          1          -    Covered              
+        bin bne                                           280          1          -    Covered              
+        bin blt                                           325          1          -    Covered              
+        bin bge                                           337          1          -    Covered              
+    Coverpoint cp_branch_taken                        100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_taken                                    1830          1          -    Covered              
+        bin taken                                         615          1          -    Covered              
+    Cross cross_branch_eval                           100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <bge,taken>                               218          1          -    Covered              
+            bin <blt,taken>                               119          1          -    Covered              
+            bin <bne,taken>                               269          1          -    Covered              
+            bin <beq,taken>                                 9          1          -    Covered              
+            bin <bge,not_taken>                           119          1          -    Covered              
+            bin <blt,not_taken>                           206          1          -    Covered              
+            bin <bne,not_taken>                            11          1          -    Covered              
+            bin <beq,not_taken>                           280          1          -    Covered              
+    Cross cross_alu_src1                              100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <op_srl,negative>                          79          1          -    Covered              
+            bin <op_sll,negative>                          66          1          -    Covered              
+            bin <op_slt,negative>                          72          1          -    Covered              
+            bin <op_sub,negative>                         582          1          -    Covered              
+            bin <op_add,negative>                         578          1          -    Covered              
+            bin <op_xor,negative>                          85          1          -    Covered              
+            bin <op_or,negative>                           62          1          -    Covered              
+            bin <op_and,negative>                         664          1          -    Covered              
+            bin <op_srl,positive>                          63          1          -    Covered              
+            bin <op_sll,positive>                          79          1          -    Covered              
+            bin <op_slt,positive>                          71          1          -    Covered              
+            bin <op_sub,positive>                         644          1          -    Covered              
+            bin <op_add,positive>                         610          1          -    Covered              
+            bin <op_xor,positive>                          63          1          -    Covered              
+            bin <op_or,positive>                           69          1          -    Covered              
+            bin <op_and,positive>                         714          1          -    Covered              
+            bin <op_srl,all_ones>                           8          1          -    Covered              
+            bin <op_sll,all_ones>                           3          1          -    Covered              
+            bin <op_slt,all_ones>                           9          1          -    Covered              
+            bin <op_sub,all_ones>                          62          1          -    Covered              
+            bin <op_add,all_ones>                          81          1          -    Covered              
+            bin <op_xor,all_ones>                           6          1          -    Covered              
+            bin <op_or,all_ones>                           10          1          -    Covered              
+            bin <op_and,all_ones>                          87          1          -    Covered              
+            bin <op_srl,zero>                               8          1          -    Covered              
+            bin <op_sll,zero>                               6          1          -    Covered              
+            bin <op_slt,zero>                               6          1          -    Covered              
+            bin <op_sub,zero>                              51          1          -    Covered              
+            bin <op_add,zero>                              68          1          -    Covered              
+            bin <op_xor,zero>                              10          1          -    Covered              
+            bin <op_or,zero>                                4          1          -    Covered              
+            bin <op_and,zero>                              78          1          -    Covered              
+    Cross cross_alu_src2                              100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <op_srl,negative>                          56          1          -    Covered              
+            bin <op_sll,negative>                          66          1          -    Covered              
+            bin <op_slt,negative>                          64          1          -    Covered              
+            bin <op_sub,negative>                         633          1          -    Covered              
+            bin <op_add,negative>                         619          1          -    Covered              
+            bin <op_xor,negative>                          77          1          -    Covered              
+            bin <op_or,negative>                           65          1          -    Covered              
+            bin <op_and,negative>                         694          1          -    Covered              
+            bin <op_srl,positive>                          81          1          -    Covered              
+            bin <op_sll,positive>                          71          1          -    Covered              
+            bin <op_slt,positive>                          78          1          -    Covered              
+            bin <op_sub,positive>                         594          1          -    Covered              
+            bin <op_add,positive>                         594          1          -    Covered              
+            bin <op_xor,positive>                          72          1          -    Covered              
+            bin <op_or,positive>                           66          1          -    Covered              
+            bin <op_and,positive>                         713          1          -    Covered              
+            bin <op_srl,all_ones>                          11          1          -    Covered              
+            bin <op_sll,all_ones>                           6          1          -    Covered              
+            bin <op_slt,all_ones>                           7          1          -    Covered              
+            bin <op_sub,all_ones>                          64          1          -    Covered              
+            bin <op_add,all_ones>                          70          1          -    Covered              
+            bin <op_xor,all_ones>                           8          1          -    Covered              
+            bin <op_or,all_ones>                            3          1          -    Covered              
+            bin <op_and,all_ones>                          74          1          -    Covered              
+            bin <op_srl,zero>                              10          1          -    Covered              
+            bin <op_sll,zero>                              11          1          -    Covered              
+            bin <op_slt,zero>                               9          1          -    Covered              
+            bin <op_sub,zero>                              48          1          -    Covered              
+            bin <op_add,zero>                              54          1          -    Covered              
+            bin <op_xor,zero>                               7          1          -    Covered              
+            bin <op_or,zero>                               11          1          -    Covered              
+            bin <op_and,zero>                              62          1          -    Covered              
+ Covergroup instance \/ex_pkg::coverage_collector::cg_ex  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    94         94          -                      
+    missing/total bins:                                     0         94          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint cp_src1                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          231          1          -    Covered              
+        bin all_ones                                      266          1          -    Covered              
+        bin positive                                     2313          1          -    Covered              
+        bin negative                                     2188          1          -    Covered              
+    Coverpoint cp_src2                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          212          1          -    Covered              
+        bin all_ones                                      243          1          -    Covered              
+        bin positive                                     2269          1          -    Covered              
+        bin negative                                     2274          1          -    Covered              
+    Coverpoint cp_alu_op                              100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin op_and                                       1543          1          -    Covered              
+        bin op_or                                         145          1          -    Covered              
+        bin op_xor                                        164          1          -    Covered              
+        bin op_add                                       1337          1          -    Covered              
+        bin op_sub                                       1339          1          -    Covered              
+        bin op_slt                                        158          1          -    Covered              
+        bin op_sll                                        154          1          -    Covered              
+        bin op_srl                                        158          1          -    Covered              
+    Coverpoint cp_branch_type                         100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin beq                                           289          1          -    Covered              
+        bin bne                                           280          1          -    Covered              
+        bin blt                                           325          1          -    Covered              
+        bin bge                                           337          1          -    Covered              
+    Coverpoint cp_branch_taken                        100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin not_taken                                    1830          1          -    Covered              
+        bin taken                                         615          1          -    Covered              
+    Cross cross_branch_eval                           100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <bge,taken>                               218          1          -    Covered              
+            bin <blt,taken>                               119          1          -    Covered              
+            bin <bne,taken>                               269          1          -    Covered              
+            bin <beq,taken>                                 9          1          -    Covered              
+            bin <bge,not_taken>                           119          1          -    Covered              
+            bin <blt,not_taken>                           206          1          -    Covered              
+            bin <bne,not_taken>                            11          1          -    Covered              
+            bin <beq,not_taken>                           280          1          -    Covered              
+    Cross cross_alu_src1                              100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <op_srl,negative>                          79          1          -    Covered              
+            bin <op_sll,negative>                          66          1          -    Covered              
+            bin <op_slt,negative>                          72          1          -    Covered              
+            bin <op_sub,negative>                         582          1          -    Covered              
+            bin <op_add,negative>                         578          1          -    Covered              
+            bin <op_xor,negative>                          85          1          -    Covered              
+            bin <op_or,negative>                           62          1          -    Covered              
+            bin <op_and,negative>                         664          1          -    Covered              
+            bin <op_srl,positive>                          63          1          -    Covered              
+            bin <op_sll,positive>                          79          1          -    Covered              
+            bin <op_slt,positive>                          71          1          -    Covered              
+            bin <op_sub,positive>                         644          1          -    Covered              
+            bin <op_add,positive>                         610          1          -    Covered              
+            bin <op_xor,positive>                          63          1          -    Covered              
+            bin <op_or,positive>                           69          1          -    Covered              
+            bin <op_and,positive>                         714          1          -    Covered              
+            bin <op_srl,all_ones>                           8          1          -    Covered              
+            bin <op_sll,all_ones>                           3          1          -    Covered              
+            bin <op_slt,all_ones>                           9          1          -    Covered              
+            bin <op_sub,all_ones>                          62          1          -    Covered              
+            bin <op_add,all_ones>                          81          1          -    Covered              
+            bin <op_xor,all_ones>                           6          1          -    Covered              
+            bin <op_or,all_ones>                           10          1          -    Covered              
+            bin <op_and,all_ones>                          87          1          -    Covered              
+            bin <op_srl,zero>                               8          1          -    Covered              
+            bin <op_sll,zero>                               6          1          -    Covered              
+            bin <op_slt,zero>                               6          1          -    Covered              
+            bin <op_sub,zero>                              51          1          -    Covered              
+            bin <op_add,zero>                              68          1          -    Covered              
+            bin <op_xor,zero>                              10          1          -    Covered              
+            bin <op_or,zero>                                4          1          -    Covered              
+            bin <op_and,zero>                              78          1          -    Covered              
+    Cross cross_alu_src2                              100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <op_srl,negative>                          56          1          -    Covered              
+            bin <op_sll,negative>                          66          1          -    Covered              
+            bin <op_slt,negative>                          64          1          -    Covered              
+            bin <op_sub,negative>                         633          1          -    Covered              
+            bin <op_add,negative>                         619          1          -    Covered              
+            bin <op_xor,negative>                          77          1          -    Covered              
+            bin <op_or,negative>                           65          1          -    Covered              
+            bin <op_and,negative>                         694          1          -    Covered              
+            bin <op_srl,positive>                          81          1          -    Covered              
+            bin <op_sll,positive>                          71          1          -    Covered              
+            bin <op_slt,positive>                          78          1          -    Covered              
+            bin <op_sub,positive>                         594          1          -    Covered              
+            bin <op_add,positive>                         594          1          -    Covered              
+            bin <op_xor,positive>                          72          1          -    Covered              
+            bin <op_or,positive>                           66          1          -    Covered              
+            bin <op_and,positive>                         713          1          -    Covered              
+            bin <op_srl,all_ones>                          11          1          -    Covered              
+            bin <op_sll,all_ones>                           6          1          -    Covered              
+            bin <op_slt,all_ones>                           7          1          -    Covered              
+            bin <op_sub,all_ones>                          64          1          -    Covered              
+            bin <op_add,all_ones>                          70          1          -    Covered              
+            bin <op_xor,all_ones>                           8          1          -    Covered              
+            bin <op_or,all_ones>                            3          1          -    Covered              
+            bin <op_and,all_ones>                          74          1          -    Covered              
+            bin <op_srl,zero>                              10          1          -    Covered              
+            bin <op_sll,zero>                              11          1          -    Covered              
+            bin <op_slt,zero>                               9          1          -    Covered              
+            bin <op_sub,zero>                              48          1          -    Covered              
+            bin <op_add,zero>                              54          1          -    Covered              
+            bin <op_xor,zero>                               7          1          -    Covered              
+            bin <op_or,zero>                               11          1          -    Covered              
+            bin <op_and,zero>                              62          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top_tb/u_intf/assert_alu_zero
+                     interface.sv(20)                   0          1
+/top_tb/u_intf/assert_alu_add
+                     interface.sv(27)                   0          1
+/top_tb/u_intf/assert_alu_sub
+                     interface.sv(34)                   0          1
+/top_tb/u_intf/assert_alu_and
+                     interface.sv(41)                   0          1
+/top_tb/u_intf/assert_alu_or
+                     interface.sv(47)                   0          1
+/top_tb/u_intf/assert_alu_xor
+                     interface.sv(53)                   0          1
+/top_tb/u_intf/assert_alu_slt
+                     interface.sv(59)                  36          1
+/top_tb/u_intf/assert_alu_sll
+                     interface.sv(67)                   0          1
+/top_tb/u_intf/assert_alu_srl
+                     interface.sv(73)                   0          1
+/top_tb/u_intf/assert_branch_beq
+                     interface.sv(81)                   0          1
+/top_tb/u_intf/assert_branch_bne
+                     interface.sv(88)                   0          1
+/top_tb/u_intf/assert_branch_blt
+                     interface.sv(95)                   0          1
+/top_tb/u_intf/assert_branch_bge
+                     interface.sv(102)                  0          1
+
+Total Coverage By Instance (filtered view): 96.15%
+

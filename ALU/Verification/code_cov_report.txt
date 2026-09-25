@@ -1,0 +1,306 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /top_tb/dut_alucu
+=== Design Unit: work.ALUcu
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        14        14         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /top_tb/dut_alucu
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../ALUcu.v
+------------------------------------CASE Branch------------------------------------
+    10                                      4966     Count coming in to CASE
+    11              1                       1217                 2'b00: op = 3'b011; // lw/sw then add
+    12              1                       1294                 2'b01: op = 3'b100; // branch then sub
+    13              1                       1212                 2'b10: begin
+    31              1                       1243                 default: op = 3'b000;
+Branch totals: 4 hits of 4 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    14                                      1212     Count coming in to CASE
+    15              1                        148                         3'b000: begin
+    22              1                        152                         3'b001: op = 3'b110; //sll / slli
+    23              1                        156                         3'b010: op = 3'b101; //slt / slti
+    24              1                        163                         3'b100: op = 3'b010; //xor / xori
+    25              1                        158                         3'b101: op = 3'b111; //srl / srli
+    26              1                        144                         3'b110: op = 3'b001; //or / ori
+    27              1                        158                         3'b111: op = 3'b000; //and / andi
+    28              1                        133                         default: op = 3'b000; //treating it as don't care 
+Branch totals: 8 hits of 8 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    16                                       148     Count coming in to IF
+    16              1                        109                             if(funct7b5 == 1'b0 || ~opcodeb5) //~opcodeb5 is 1 only for I type
+    18              1                         39                             else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       2         2         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /top_tb/dut_alucu --
+
+  File ../ALUcu.v
+----------------Focused Condition View-------------------
+Line       16 Item    1  (funct7b5 ~& opcodeb5)
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      13        13         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /top_tb/dut_alucu --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../ALUcu.v
+    1                                                module ALUcu(
+    2                                                    input [2:0] funct3,
+    3                                                    input [1:0] ALUop,
+    4                                                    input opcodeb5,
+    5                                                    input funct7b5,
+    6                                                    output reg [2:0] op
+    7                                                    );
+    8                                                    
+    9               1                       4966         always @(*) begin
+    10                                                       case(ALUop)
+    11              1                       1217                 2'b00: op = 3'b011; // lw/sw then add
+    12              1                       1294                 2'b01: op = 3'b100; // branch then sub
+    13                                                           2'b10: begin
+    14                                                               case (funct3)
+    15                                                                   3'b000: begin
+    16                                                                       if(funct7b5 == 1'b0 || ~opcodeb5) //~opcodeb5 is 1 only for I type
+    17              1                        109                                 op = 3'b011; // add/addi
+    18                                                                       else
+    19              1                         39                                 op = 3'b100; // sub
+    20                                                                   end
+    21                                               
+    22              1                        152                         3'b001: op = 3'b110; //sll / slli
+    23              1                        156                         3'b010: op = 3'b101; //slt / slti
+    24              1                        163                         3'b100: op = 3'b010; //xor / xori
+    25              1                        158                         3'b101: op = 3'b111; //srl / srli
+    26              1                        144                         3'b110: op = 3'b001; //or / ori
+    27              1                        158                         3'b111: op = 3'b000; //and / andi
+    28              1                        133                         default: op = 3'b000; //treating it as don't care 
+    29                                                               endcase
+    30                                                              end
+    31              1                       1243                 default: op = 3'b000;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         20        20         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top_tb/dut_alucu --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+
+Total Node Count     =         10 
+Toggled Node Count   =         10 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (20 of 20 bins)
+
+=================================================================================
+=== Instance: /top_tb/dut_alu
+=== Design Unit: work.ALU
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         9         9         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /top_tb/dut_alu
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../ALU.v
+------------------------------------CASE Branch------------------------------------
+    10                                      8791     Count coming in to CASE
+    11              1                       2615                 3'b000: ALUout = src1 & src2;
+    12              1                        286                 3'b001: ALUout = src1 | src2;
+    13              1                        324                 3'b010: ALUout = src1 ^ src2;
+    14              1                       2307                 3'b011: ALUout = src1 + src2;
+    15              1                       2336                 3'b100: ALUout = src1 - src2;
+    16              1                        307                 3'b101: begin ALUout = src1 - src2; ALUout = {31'b0, ALUout[31]}; end  //slti                            
+    17              1                        300                 3'b110: ALUout = src1 << src2[4:0];
+    18              1                        315                 3'b111: ALUout = src1 >> src2[4:0];  
+    19              1                          1                 default: ALUout = 32'b0;
+Branch totals: 9 hits of 9 branches = 100.00%
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      1         1         0   100.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /top_tb/dut_alu --
+
+  File ../ALU.v
+----------------Focused Expression View-----------------
+Line       21 Item    1  (ALUout == 0)
+Expression totals: 1 of 1 input term covered = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      12        12         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /top_tb/dut_alu --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../ALU.v
+    1                                                module ALU(
+    2                                                    input [31:0] src1,
+    3                                                    input [31:0] src2,
+    4                                                    input [2:0] op,    
+    5                                                    output reg [31:0] ALUout,
+    6                                                    output reg zero
+    7                                                    );
+    8                                                       
+    9               1                       8791         always @(src1 or src2 or op) begin
+    10                                                       case (op)
+    11              1                       2615                 3'b000: ALUout = src1 & src2;
+    12              1                        286                 3'b001: ALUout = src1 | src2;
+    13              1                        324                 3'b010: ALUout = src1 ^ src2;
+    14              1                       2307                 3'b011: ALUout = src1 + src2;
+    15              1                       2336                 3'b100: ALUout = src1 - src2;
+    16              1                        307                 3'b101: begin ALUout = src1 - src2; ALUout = {31'b0, ALUout[31]}; end  //slti                            
+    16              2                        307     
+    17              1                        300                 3'b110: ALUout = src1 << src2[4:0];
+    18              1                        315                 3'b111: ALUout = src1 >> src2[4:0];  
+    19              1                          1                 default: ALUout = 32'b0;
+    20                                                       endcase
+    21              1                       8791             zero = (ALUout == 0);
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        200       200         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top_tb/dut_alu --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+
+Total Node Count     =        100 
+Toggled Node Count   =        100 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (200 of 200 bins)
+
+=================================================================================
+=== Instance: /top_tb/dut_branch
+=== Design Unit: work.branchEvaluator
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         7         7         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /top_tb/dut_branch
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../branchEvaluator.v
+------------------------------------IF Branch------------------------------------
+    10                                      9269     Count coming in to IF
+    10              1                       4606             if(PCWriteCond) begin
+    19              1                       4663             else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    11                                      4606     Count coming in to CASE
+    12              1                        550                     3'b000: branch = z;  // a == b
+    13              1                        523                     3'b001: branch = ~z; // a != b
+    14              1                        617                     3'b100: branch = sign == 1'b1; //sign(a - b) = 1 (-ve)
+    15              1                        630                     3'b101: branch = sign == 1'b0; //sign(a - b) = 0 (+ve)
+    16              1                       2286                     default: branch = 1'b0;
+Branch totals: 5 hits of 5 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       7         7         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /top_tb/dut_branch --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../branchEvaluator.v
+    1                                                module branchEvaluator(
+    2                                                    input PCWriteCond,
+    3                                                    input [2:0] funct3,
+    4                                                    input sign,
+    5                                                    input z,
+    6                                                    output reg branch
+    7                                                    );
+    8                                                    
+    9               1                       9269         always @(*) begin
+    10                                                       if(PCWriteCond) begin
+    11                                                           case (funct3)
+    12              1                        550                     3'b000: branch = z;  // a == b
+    13              1                        523                     3'b001: branch = ~z; // a != b
+    14              1                        617                     3'b100: branch = sign == 1'b1; //sign(a - b) = 1 (-ve)
+    15              1                        630                     3'b101: branch = sign == 1'b0; //sign(a - b) = 0 (+ve)
+    16              1                       2286                     default: branch = 1'b0;
+    17                                                           endcase        
+    18                                                       end
+    19                                                       else
+    20              1                       4663                 branch = 1'b0;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         14        14         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top_tb/dut_branch --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+
+Total Node Count     =          7 
+Toggled Node Count   =          7 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (14 of 14 bins)
+
+
+Total Coverage By Instance (filtered view): 100.00%
+
