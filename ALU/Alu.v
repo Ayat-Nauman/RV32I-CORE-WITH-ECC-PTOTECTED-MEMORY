@@ -16,6 +16,7 @@ module ALU(
             3'b101: begin ALUout = src1 - src2; ALUout = {31'b0, ALUout[31]}; end  //slti                            
             3'b110: ALUout = src1 << src2[4:0];
             3'b111: ALUout = src1 >> src2[4:0];  
+            default: ALUout = 32'b0;
         endcase
         zero = (ALUout == 0);
     end
